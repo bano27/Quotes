@@ -14,9 +14,12 @@ export class DisplayQuoteComponent implements OnInit {
     {Postby: 'Jeff', Quote: '“Remember that the happiest people are not those getting more, but those giving more.”', Author: 'Jackson Brown Jr' }
   ];
 
-  constructor() { }
+  deleteQuotes(isComplete, index){
+    if (isComplete){
+      this.quotes.splice(index, 1);
+    }
+  }
 
   ngOnInit(): void {
   }
-
 }

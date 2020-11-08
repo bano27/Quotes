@@ -5,7 +5,7 @@
       <br>
       <label for="quote">{{quote.Quote}} by {{quote.Author}}</label>
       <br>
-      <app-quote-details [quote]='quote'></app-quote-details>
+      <app-quote-details [quote]='quote' (isComplete)='deleteQuotes($event, i)'></app-quote-details>
     </li>
   </ul>
 </div>
