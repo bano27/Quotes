@@ -1,1 +1,15 @@
-<p>quote-details works!</p>
+<div class="container">
+  <ul>
+    <li *ngFor='let goal of goals'>
+      <label for="">Posted by {{goal.Postby}}</label>
+      <br>
+      <label for="quote">{{goal.Quote}} by {{goal.Author}}</label>
+      <br>
+      <button type="button" name="button">Upvote</button>
+      <button type="button" name="button">Downvote</button>
+      <br><br>
+      <button type="button" name="button">Delete Quote</button>
+    </li>
+  </ul>
+        <app-quote-form (addquote)="addNewquote($event)"></app-quote-form>
+</div>

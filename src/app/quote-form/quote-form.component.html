@@ -1,15 +1,25 @@
-<form class="" action="index.html" method="post">
+<form (ngSubmit)='postQuote()' #quoteForm='ngForm'>
   <div class="form-group">
-    <label for="name">Posted By</label><br>
-    <input type="text" class="User" id="PostBy">
+    <label for="">Posted By</label><br>
+    <input type="text" name="" value="" [(ngModel)]="newQuote.Postby" #postbyname='ngModel' required>
+    <div [hidden]="postbyname.valid || postbyname.pristine" class="alert alert-danger">
+      <p>postbyname is required</p>
+    </div>
   </div>
   <div class="form-group">
-    <label for="quote">Quote here</label>
-    <textarea name="" rows="8" cols="50"></textarea>
+    <label for="">Quote</label><br>
+    <textarea name="name" rows="8" cols="50" [(ngModel)]="newQuote.Quote" #quoted='ngModel' required></textarea>
+    <div [hidden]="quoted.valid || quoted.pristine" class="alert alert-danger">
+      <p>quoted is required</p>
+    </div>
   </div>
   <div class="form-group">
-    <label for="Author">Author to the quote</label><br>
-    <input type="text" class="AuthorName" id="AuthorName">
+    <label for="">Author Name</label><br>
+    <input type="text" name="" value="" [(ngModel)]="newQuote.Author" #Authorname='ngModel' required>
+    <div [hidden]="Authorname.valid || Authorname.pristine" class="alert alert-danger">
+      <p>AuthorName is required</p>
+    </div>
   </div>
-  <button btn btn-success type="button" name="button">Submit</button>
+  <br>
+  <button type="button" name="button">Post Quote</button>
 </form>
