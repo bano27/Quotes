@@ -14,6 +14,13 @@ export class DisplayQuoteComponent implements OnInit {
     {Postby: 'Jeff', Quote: '“Remember that the happiest people are not those getting more, but those giving more.”', Author: 'Jackson Brown Jr' }
   ];
 
+  addNewQuote(quote){
+    let quoteLength = this.quotes.length;
+    quote.id = quoteLength+1;
+    quote.completeDate = new Date(quote.completeDate)
+    this.quotes.push(quote)
+  }
+
   deleteQuotes(isComplete, index){
     if (isComplete){
       this.quotes.splice(index, 1);

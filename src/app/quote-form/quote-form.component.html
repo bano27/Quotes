@@ -1,15 +1,30 @@
-<form>
+<form (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
   <div class="form-group">
     <label for="">Posted By</label><br>
-    <input type="text" name="Postby" class="form-control" required>
+    <input type="text" name="Postby" class="form-control" [(ngModel)]="newQuote.Postby" #Postby='ngModel' required>
+    <div [hidden]="Postby.valid || Postby.pristine" class="alert alert-danger">
+      <p>Postby is required</p>
+    </div>
+    <br>
+    Display  {{newQuote.Postby}}
   </div>
   <div class="form-group">
     <label for="">Quote</label><br>
-    <textarea name="Quote" rows="8" cols="50" class="form-control" required></textarea>
+    <textarea name="Quote" rows="8" cols="50" class="form-control" [(ngModel)]="newQuote.Quote" #Quote='ngModel' required></textarea>
+    <div [hidden]="Quote.valid || Quote.pristine" class="alert alert-danger">
+      <p>Quote is required</p>
+    </div>
+    <br>
+    Display  {{newQuote.Quote}}
   </div>
   <div class="form-group">
     <label for="">Author Name</label><br>
-    <input type="text" name="Author" class="form-control" required>
+    <input type="text" name="Author" class="form-control" [(ngModel)]="newQuote.Author" #Author='ngModel' required>
+    <div [hidden]="Author.valid || Author.pristine" class="alert alert-danger">
+      <p>Author is required</p>
+    </div>
+    <br>
+    Display  {{newQuote.Author}}
   </div>
   <br>
   <button type="submit" name="submit" class="btn btn-primary">Post Quote</button>
