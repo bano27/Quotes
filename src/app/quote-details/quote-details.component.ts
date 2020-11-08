@@ -9,6 +9,15 @@ import { MyQuotes } from '../my-quotes';
 export class QuoteDetailsComponent implements OnInit {
 
   @Input() quote: MyQuotes;
+  numberOfLikes: number = 0;
+
+  likeButtonClick(){
+    this.numberOfLikes++;
+  }
+  dislikeButtonClick(){
+    this.numberOfLikes--;
+  }
+
   @Output() isComplete = new EventEmitter<boolean>();
 
   deleteQuote(complete:boolean){

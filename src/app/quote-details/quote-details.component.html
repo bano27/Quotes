@@ -1,6 +1,7 @@
 <div class="container">
-  <button type="submit" name="button" class="btn btn-success">Upvote</button>
-  <button type="submit" name="button" class="btn btn-primary">Downvote</button>
+  <p>This Quote was posted {{quote.Posted|dateCount}}</p>
+  <button type="submit" name="button" class="btn btn-success" (click)='likeButtonClick()'>Upvote</button><span><br>{{numberOfLikes}}<br></span>
+  <button type="submit" name="button" class="btn btn-primary" (click)='dislikeButtonClick()'>Downvote</button>
   <br><br>
   <button type="submit" name="button" class="btn btn-danger" (click)='deleteQuote(true)'>Delete Quote</button>
 </div>
