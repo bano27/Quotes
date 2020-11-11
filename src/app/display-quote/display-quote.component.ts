@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MyQuotes } from '../my-quotes';
 import { HttpClient } from '@angular/common/http';
-import { Quote } from '../quote-class/quote';
+import { Quoted } from '../quote-class/quote';
 
 @Component({
   selector: 'app-display-quote',
@@ -10,7 +10,7 @@ import { Quote } from '../quote-class/quote';
 })
 export class DisplayQuoteComponent implements OnInit {
 
-  quote:Quote;
+  quote:Quoted;
   quotes: MyQuotes[] = [
     {Postby: 'Ben', Quote: '“Challenges are what make life interesting and overcoming them is what makes life meaningful.”', Author: 'Joshua J. Marine'},
     {Postby: 'Susan', Quote: '“Let us always meet each other with smile, for the smile is the beginning of love.”', Author: 'Mother Teresa'},
@@ -41,7 +41,7 @@ export class DisplayQuoteComponent implements OnInit {
 
     this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
       // Succesful API request
-      this.quote = new Quote(data.author, data.quote)
+      this.quote = new Quoted(data.author, data.quote)
     })
   }
 }
